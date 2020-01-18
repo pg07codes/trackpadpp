@@ -1,0 +1,30 @@
+{
+  "name": "trackpadpp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "trackpadpp.js",
+  "scripts": {
+    "prod": "node trackpadpp.js",
+    "dev" : "nodemon trackpadpp.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pg07codes/trackpadpp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pg07codes/trackpadpp/issues"
+  },
+  "homepage": "https://github.com/pg07codes/trackpadpp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "robotjs": "^0.6.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

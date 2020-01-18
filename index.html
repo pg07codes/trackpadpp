@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackpad</title>
+</head>
+
+<body>
+
+    <h1>working</h1>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+    </script>
+    <script>
+    document.onmousemove = handleMouseMove;
+    function handleMouseMove(e) {
+        socket.emit("mousemove",{x:e.clientX,y: e.clientY})
+    }
+    </script>
+</body>
+
+</html>
