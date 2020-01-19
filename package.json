@@ -5,8 +5,7 @@
   "main": "trackpadpp.js",
   "scripts": {
     "prod": "node trackpadpp.js",
-    "dev" : "nodemon trackpadpp.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev" : "nodemon trackpadpp.js"
   },
   "repository": {
     "type": "git",
