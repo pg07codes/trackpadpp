@@ -17,6 +17,11 @@ var h = screen.height ;
 
 socket.emit('deviceInfo',{w,h})
 
+function handle(ev){
+    socket.emit('x')
+}
+trackpadArea.ontouchend = handle;
+
 
 trackpad.bind(trackpadArea, 'tap', function (event) {
     socket.emit('tap')

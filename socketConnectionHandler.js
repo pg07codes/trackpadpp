@@ -19,7 +19,7 @@ function socketConnectionHandler(io) {
         })
 
         socket.on("tap", () => {
-            // robot.mouseClick();
+            robot.mouseClick();
         })
 
         let oldX = -1
@@ -29,40 +29,59 @@ function socketConnectionHandler(io) {
 
         socket.on("pan", (data) => {
 
-            console.log('pan info', data)
-            if (newX == -1) {
+            // console.log('pan info', data)
+            if (newX === -1) {
 
-                oldX = data.ev.screenX
-                oldY = data.ev.screenY
-                newX = data.ev.screenX
-                newY = data.ev.screenY
+                oldX = parseFloat(data.ev.screenX.toFixed(2))
+                oldY = parseFloat(data.ev.screenY.toFixed(2))
+                newX = parseFloat(data.ev.screenX.toFixed(2))
+                newY = parseFloat(data.ev.screenY.toFixed(2))
 
             } else {
+
+
+
                 oldX = newX
                 oldY = newY
-                newX = data.ev.screenX
-                newY = data.ev.screenY
+                newX = parseFloat(data.ev.screenX.toFixed(2))
+                newY = parseFloat(data.ev.screenY.toFixed(2))
 
-                console.log("->", oldX, newY)
+                console.log('oldtap', oldX, oldY)
+                console.log('newtap', newX, newY)
 
                 const scalingFactorX = screenSize.width / clientWidth
                 const scalingFactorY = screenSize.height / clientHeight
 
 
-
-                diffAlongX = ((newX - oldX) * scalingFactorX).toFixed(2)
-                diffAlongY = ((newY - oldY) * scalingFactorY ).toFixed(2)
+                diffAlongX = parseFloat(((newX - oldX) * scalingFactorX).toFixed(2))
+                diffAlongY = parseFloat(((newY - oldY) * scalingFactorY).toFixed(2))
 
 
                 let origx = robot.getMousePos().x
                 let origy = robot.getMousePos().y
-                
-                robot.moveMouse(origx+parseFloat(diffAlongX),origy+parseFloat(diffAlongY))
+
+                console.log('origPosMouse', origx, origy)
+                console.log('newPosMouse', origx + diffAlongX, origy + diffAlongY)
+                console.log('----')
+
+                robot.moveMouse(origx + diffAlongX, origy + diffAlongY)
+
+                // oldX = -1
+                // oldY = -1
+                // newX = -1
+                // newY = -1
 
             }
 
 
 
+        })
+
+        socket.on('x', () => {
+            oldX = -1
+            oldY = -1
+            newX = -1
+            newY = -1
         })
 
     })
