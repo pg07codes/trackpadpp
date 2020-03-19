@@ -11,11 +11,12 @@ function socketConnectionHandler(io) {
     io.on('connection', (socket) => {
         console.log("connection made with", socket.id)
 
-        let clientWidth = -1, clientHeight = -1
-        socket.on('deviceInfo', (dev) => {
-            clientWidth = dev.w
-            clientHeight = dev.h
-            console.log('Clients Device Details', dev.h, 'X', dev.w)
+        let csw = -1, csh = -1
+        socket.on('clientScreenInfo', (info) => {
+            console.log(info)
+            csw = info.clientScreenWidth
+            csh = info.clientScreenHeight
+            console.log('Clients Screen Details', csh, 'X', csw)
         })
 
         socket.on("tap", () => {
@@ -49,8 +50,8 @@ function socketConnectionHandler(io) {
                 console.log('oldtap', oldX, oldY)
                 console.log('newtap', newX, newY)
 
-                const scalingFactorX = screenSize.width / clientWidth
-                const scalingFactorY = screenSize.height / clientHeight
+                const scalingFactorX = screenSize.width / csw
+                const scalingFactorY = screenSize.height / csh
 
 
                 diffAlongX = parseFloat(((newX - oldX) * scalingFactorX).toFixed(2))
@@ -77,11 +78,15 @@ function socketConnectionHandler(io) {
 
         })
 
-        socket.on('x', () => {
+        socket.on('touchEnd', () => {
             oldX = -1
             oldY = -1
             newX = -1
             newY = -1
+        })
+
+        socket.on('test', ({ev}) => {
+            console.log(ev.details)
         })
 
     })
