@@ -1,9 +1,14 @@
 # trackpadpp    
 
-It allows user to control a devices cursor (Desktop, laptop) using a mobile or tablet as a trackpad.
+> control a device's cursor (Desktop, laptop) using a mobile or tablet touchscreen as a trackpad.
 
+Could be useful if you want to - 
 - Use it if your laptop trackpad is not working correctly.
-- Might use it if you want to control your laptop,desktop wirelessly from a distance.
+- Use it if you want to control your laptop,desktop wirelessly from a distance.
+
+## gif (demonstrating simple usage)
+
+![](https://github.com/pg07codes/trackpadpp/blob/master/.github/usage.gif)
 
 
 ## setup and running
@@ -16,6 +21,14 @@ It allows user to control a devices cursor (Desktop, laptop) using a mobile or t
   
 ## how it works ?
 
-It spins up a local server on your device (whose cursor will be controlled) and allows another device(controller) to control the cursor using two-way socket connections.
+It spins up a local server on your device (whose cursor will be controlled) and allows another device(controller) to control the cursor using two-way socket connections and uses robotjs library for the cursor OS bindings.
 
-### built and maintained by @pg07codes
+
+<p align="center">⭐⭐⭐⭐⭐</p>
+<h2 align="center">
+  Open Source
+</h2>
+<p align="center">
+  <sub>Copyright © 2020-present, Pranav Gupta</sub>
+</p>
+<p align="center">Trackpadpp is <a href="https://github.com/pg07codes/trackpadpp/blob/master/license.md">MIT</a> licensed 💖</p>

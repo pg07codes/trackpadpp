@@ -5,7 +5,7 @@
   "main": "trackpadpp.js",
   "scripts": {
     "prod": "node trackpadpp.js",
-    "dev" : "nodemon trackpadpp.js"
+    "dev": "nodemon trackpadpp.js"
   },
   "repository": {
     "type": "git",
